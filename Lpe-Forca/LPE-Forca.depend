@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1573182595 source:c:\users\jair\desktop\trabalho-forca\lpe-forca\verifica.c
+	<stdio.h>
+
+1573504244 source:c:\users\jair\desktop\trabalho-forca\lpe-forca\main.c
+	<stdio.h>
+	<string.h>
+	<conio.h>
+	<locale.h>
+	<stdlib.h>
+	<windows.h>
+	<ctype.h>
+	<time.h>
+	"Desenha.h"
+	"Verifica.h"
+
+1573506472 c:\users\jair\desktop\trabalho-forca\lpe-forca\desenha.h
+	<stdio.h>
+
+1573507976 c:\users\jair\desktop\trabalho-forca\lpe-forca\verifica.h
+	<stdio.h>
+
