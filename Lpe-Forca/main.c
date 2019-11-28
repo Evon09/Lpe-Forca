@@ -6,8 +6,11 @@
 #include <windows.h>
 #include <ctype.h>
 #include <time.h>
-#include "Desenha.h"
+
 #include "Verifica.h"
+
+
+
 
 
 
@@ -16,6 +19,10 @@ main(){
     int tamanho, erro=0,acerto=0,acerto2,espaco=0,i=0,palavraaleatoria,tecla;
 
     PlaySound(TEXT("forca.wav"), NULL, SND_LOOP | SND_ASYNC);
+    //config_Screen();
+
+    system("mode con:cols=101 lines=30");
+    SetConsoleTitle("UOF7 - FORCA 2019");
 
     tecla=telaInicial(tecla,palavra,dica,i,palavraaleatoria);
 
@@ -25,6 +32,7 @@ main(){
     strcpy(palavra_,palavra); // transforma a palavra informada em array
     tamanho=strlen(palavra);
     espaco=linha(tamanho,palavra_,palavra,espaco,letra);
+
     erro=jogo(erro,tamanho,palavra_,palavra,acerto,letra,letrasaux,tecla,dica,espaco,acerto2);
     system("cls");
     printf("%d",erro);

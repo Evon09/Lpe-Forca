@@ -1,5 +1,32 @@
 #include <stdio.h>
 
+void moldura(int ci, int cf, int li, int lf){///Funçao criada Por Carlos ^_^
+    int l,c;
+    for (c = ci + 1; c < cf; c++){
+        gotoxy(c,li);printf("%c",205);
+        gotoxy(c,lf);printf("%c",205);
+    }
+
+    for (l = li + 1; l < lf ; l++){
+        gotoxy(ci,l);printf("%c",186);
+        gotoxy(cf,l);printf("%c",186);
+
+    }
+
+    gotoxy(ci,li);printf("%c",201);
+    gotoxy(ci,lf);printf("%c",200);
+    gotoxy(cf,li);printf("%c",187);
+    gotoxy(cf,lf);printf("%c",188);
+}
+
+
+void moldura(int ci, int cf, int li, int lf);
+
+
+
+
+
+
 char forca[6][9]={{"+====h   "},
                 {"y    y   "},
                 {"y    o   "},
@@ -31,7 +58,7 @@ void gotoxy(int x, int y){
 }
 
 int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
-    int pos=0, lin=28, col=69,cont=0;
+    int pos=0, lin=22, col=38,cont=0;
     int tecla;
     do {
         Menu();
@@ -44,8 +71,7 @@ int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
         gotoxy(col,lin+3); printf("|                   |");
         gotoxy(col,lin+4); printf("|      Musica/Stop  |");
         gotoxy(col,lin+5); printf("|                   |");
-        gotoxy(col,lin+6); printf("|                   |");
-        gotoxy(col,lin+7); printf("+===================+");
+        gotoxy(col,lin+6); printf("+===================+");
 
         gotoxy(col+2,lin+pos); printf("-->");
         tecla=getch();
@@ -109,38 +135,14 @@ char game[15][25]={{"ppppppppppppppppppppppppp"},
                    {"pp   pppp ppp    pp ppp p"},
                    {"ppppppppppppppppppppppppp"}};
 
-char win[32][70]={{"                                       ,,,                           "},
-{"                                  .,.     ,*                         "},
-{"                                 ,.    ,..,**                        "},
-{"                                  ,  ...,,,,**                       "},
-{"                                   ,..,,,,,,,**                      "},
-{"                                 .,.,,,,,,,,,,*,                     "},
-{"                           ,,   ,,.,,,,,,,,,,,,*                     "},
-{"                       .,..,,,...,,,,,,,,,,,,,,,*                    "},
-{"                    ,.*****,,,,,, ,,,,,,,,,,,,,,,                    "},
-{"                     ,,*****,,,        ,        ,                    "},
-{"                     .,,**,,,.,         ,   .,,                      "},
-{"                     ,,,,                 , ,,,,                     "},
-{"                     ,,,,                   ,,,,                     "},
-{"                     ,,,                     ,,,                     "},
-{"                    ,,,,     #%%%%%#(%%%     ,,,,                    "},
-{"                    ,,,,    %%%%%%#%%%%%%%#. ,,,,                    "},
-{"                    ,,,     %##%%%%%%%%%%%%. ,,,,                    "},
-{"                   ,,,,    .,,,,,,,,,,,,,,    ,,,.                   "},
-{"                    ,,,,,  ,,,,,,,,,,,,,,,  ,,,,.                    "},
-{"                      ,,,,  ,,,,,,,,,,,,,  ,,,,                      "},
-{"                       ,,,,,  ,,,,,,,,,. ,,,,.                       "},
-{"                         ,,,,    ***    ,,,,                         "},
-{"                          ,,,,,,&&&&&,,,,,,                          "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,&&&,,,,,                            "},
-{"                            ,,,,,,&,,,,,,                            "},
-{"                            ,,,,,,,,,,,,,                            "}};
+char win[6][44]= {{"         _   _       __           _         "},
+                   {"        (_) | |     /_/          (_)        "},
+                   {"__   __  _  | |_    ___    _ __   _    __ _ "},
+                   {"\\ \\ / / | | | __|  / _ \\  | '__| | |  / _` |"},
+                   {" \\ V /  | | | |_  | (_) | | |    | | | (_| |"},
+                   {"  \\_/   |_| \\___|  \\___/  |_|    |_|  \\__,_|"}};
+
+
 
 void Menu(){
 int l,c;
@@ -148,7 +150,7 @@ int l,c;
 //scorebar (c);
 for (l=0;l<13;l++){
     for(c=0;c<98;c++){
-        gotoxy(38+c,10+l);
+        gotoxy(2+c,5+l);
         switch(menu[l][c]){
             case'p' : printf("%c",219);break;
             case'o' : printf("%c",187);break;
@@ -188,7 +190,7 @@ int l,c;
 }
     for (l=0;l<6;l++){
         for(c=0;c<9;c++){
-            gotoxy(56+c,15+l);
+            gotoxy(4+c,3+l);
             switch(forca[l][c]){
             case'+' : printf("%c",201  );break;
             case'y' : printf("%c",186  );break;
@@ -204,11 +206,12 @@ int l,c;
 }
 void gameover(){
 int l,c;
+system("mode con:cols=34 lines=20");
 //moldura(91,110, 15, 34);
 //scorebar (c);
 for (l=0;l<15;l++){
     for(c=0;c<25;c++){
-        gotoxy(40+c,10+l);
+        gotoxy(5+c,3+l);
         switch(game[l][c]){
             case'p' : printf("%c",219);break;
             default:printf("%c",game[l][c]);
@@ -219,6 +222,7 @@ int telaInicial(int tecla,char *palavra,char *dica,int i,int palavraaleatoria){
 
     do{
         system("color 08");
+        moldura(1,101,2,30);
 
 
 
@@ -237,10 +241,11 @@ return(tecla);
 
 void vencer(){
     int l,c;
+    system("mode con:cols=48 lines=16");
 
-    for (l=0;l<32;l++){
-    for(c=0;c<70;c++){
-        gotoxy(40+c,7+l);
+    for (l=0;l<6;l++){
+    for(c=0;c<44;c++){
+        gotoxy(3+c,5+l);
         printf("%c",win[l][c]);
         }
     }
