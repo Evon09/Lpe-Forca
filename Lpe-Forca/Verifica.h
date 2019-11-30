@@ -76,14 +76,28 @@ void tecla1(char *palavra,char *dica,int i,int palavraaleatoria){
                   FILE *dicas;
                   dicas =fopen("dicas.txt","r");
                   palavras =fopen("palavra.txt","r");
-                  srand(time(NULL));
+                  while(fgets(palavra, 60, palavras)!= NULL&& fgets(dica, 60, dicas)!=NULL){
+                    i++;
+                  }
+                fclose(dicas);
+                fclose(palavras);
 
 
-                  palavraaleatoria=i;
+
+                srand(time(NULL));
+
+
+                //palavraaleatoria=i;
+
                 //printf("%d", palavraaleatoria);
+                //system("pause");
                // palavraaleatoria=rand()%palavraaleatoria;
                 //printf("%d", palavraaleatoria);
-                  palavraaleatoria=rand()%20;
+
+                  palavraaleatoria=rand()%i;
+                  dicas =fopen("dicas.txt","r");
+                  palavras =fopen("palavra.txt","r");
+                  i=0;
 
 
                 while(fgets(palavra, 60, palavras)!= NULL&& fgets(dica, 60, dicas)!=NULL&&i<=palavraaleatoria){
@@ -140,7 +154,7 @@ do{
             gotoxy(3,16);
             printf("Digite uma letra:");
             letra=getch();
-            Beep(100,10);
+            Beep(5000,5);
             acerto=Verifica(tamanho,palavra_,palavra,acerto,letra,erro);
             system("cls");
             if(acerto2==acerto){

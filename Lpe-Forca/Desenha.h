@@ -57,11 +57,17 @@ void gotoxy(int x, int y){
 
 }
 
+
+
+
+
+
 int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
     int pos=0, lin=22, col=38,cont=0;
     int tecla;
+    Menu();
     do {
-        Menu();
+        //Menu();
         gotoxy(col,lin-4); printf("   O jogo da Forca   ");
         gotoxy(col,lin-2); printf("+===================+");
         gotoxy(col,lin-1); printf("|                   |");
@@ -73,17 +79,19 @@ int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
         gotoxy(col,lin+5); printf("|                   |");
         gotoxy(col,lin+6); printf("+===================+");
 
-        gotoxy(col+2,lin+pos); printf("-->");
+        gotoxy(col+2,lin+pos); printf(">>");
         tecla=getch();
-        Beep(10,2);
+
             switch(tecla) {
                 case 80:
-                    gotoxy(col-4,lin+pos); printf("   ");
-                    if(pos<4) pos+=2;
+                    gotoxy(col+2,lin+pos); printf("  ");
+                    if(pos<4) {pos+=2;
+                    Beep(2000,10);}
                     break;
                 case 72:
-                    gotoxy(col-4,lin+pos); printf("   ");
-                    if(pos>0) pos-=2;
+                    gotoxy(col+2,lin+pos); printf("  ");
+                    if(pos>0) {pos-=2;
+                    Beep(2000,10);}
                     break;
 
             }
