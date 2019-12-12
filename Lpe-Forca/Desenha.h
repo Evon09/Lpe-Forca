@@ -77,7 +77,9 @@ int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
         gotoxy(col,lin+3); printf("|                   |");
         gotoxy(col,lin+4); printf("|      Musica/Stop  |");
         gotoxy(col,lin+5); printf("|                   |");
-        gotoxy(col,lin+6); printf("+===================+");
+        gotoxy(col,lin+6); printf("|      Exit         |");
+        gotoxy(col,lin+7); printf("|                   |");
+        gotoxy(col,lin+8); printf("+===================+");
 
         gotoxy(col+2,lin+pos); printf(">>");
         tecla=getch();
@@ -85,7 +87,7 @@ int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
             switch(tecla) {
                 case 80:
                     gotoxy(col+2,lin+pos); printf("  ");
-                    if(pos<4) {pos+=2;
+                    if(pos<6) {pos+=2;
                     Beep(2000,10);}
                     break;
                 case 72:
@@ -102,7 +104,7 @@ int menuteste(char *palavra,char *dica,int i,int palavraaleatoria) {
                     case 4:if(cont==0){PlaySound(0,0,0);cont=1;}else{PlaySound(TEXT("forca.wav"), NULL, SND_LOOP| SND_ASYNC);cont=0;}break;
 
                 }
-                if(pos==0||pos==2)
+                if(pos==0||pos==2||pos==6)
                 break;
             }
     } while(1);
@@ -182,7 +184,9 @@ int l,c;
     switch (erro){
         case 1 :forca[3][5]='|';break;
 
-        case 0 :forca[4][6]=' ';break;
+        case 0 :forca[4][6]=' ';forca[3][4]=' ';forca[4][6]=' ';
+        forca[3][5]=' ';forca[3][6]=' ';forca[3][4]=' ';
+        forca[4][4]=' ';break;
 
 
         case 2 :forca[3][6]=')';break;
@@ -203,7 +207,7 @@ int l,c;
             case'+' : printf("%c",201  );break;
             case'y' : printf("%c",186  );break;
             case'p' : printf("%c",202  );break;
-            case'o' : printf("%c",184  );break;
+            case'o' : printf("%c",1  );break;
             case'=' : printf("%c",205  );break;
             case'h' : printf("%c",187  );break;
             default:printf("%c",forca[l][c]);
@@ -230,7 +234,7 @@ int telaInicial(int tecla,char *palavra,char *dica,int i,int palavraaleatoria){
 
     do{
         system("color 08");
-        moldura(1,101,2,30);
+        moldura(1,101,2,33);
 
 
 

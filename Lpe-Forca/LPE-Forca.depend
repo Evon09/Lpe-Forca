@@ -20,7 +20,7 @@
 1573507976 c:\users\jair\desktop\trabalho-forca\lpe-forca\verifica.h
 	<stdio.h>
 
-1574974808 source:c:\users\jair\desktop\lpe-forca-master\lpe-forca\main.c
+1575689891 source:c:\users\jair\desktop\lpe-forca-master\lpe-forca\main.c
 	<stdio.h>
 	<string.h>
 	<conio.h>
@@ -31,10 +31,10 @@
 	<time.h>
 	"Verifica.h"
 
-1575140570 c:\users\jair\desktop\lpe-forca-master\lpe-forca\desenha.h
+1575689152 c:\users\jair\desktop\lpe-forca-master\lpe-forca\desenha.h
 	<stdio.h>
 
-1575140645 c:\users\jair\desktop\lpe-forca-master\lpe-forca\verifica.h
+1575688506 c:\users\jair\desktop\lpe-forca-master\lpe-forca\verifica.h
 	<stdio.h>
 	"Desenha.h"
 

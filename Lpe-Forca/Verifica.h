@@ -109,6 +109,7 @@ void tecla1(char *palavra,char *dica,int i,int palavraaleatoria){
 
 int jogo(int erro,int tamanho,char *palavra_,char *palavra,int acerto,char *letra,char *letrasaux,int tecla,char *dica,int espaco,int acerto2){
 system("mode con:cols=50 lines=20");
+erro=0;
 
 do{
 
